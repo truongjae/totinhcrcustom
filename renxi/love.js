@@ -533,7 +533,9 @@
 }
 var url_string = location.href;
 var url_string = url_string.split("application.html?");
-var query = b64DecodeUnicode(url_string[1]);
+var url_cut = url_string[1];
+var url_cut = url_cut.split("&");
+var query = b64DecodeUnicode(url_cut[0]);
 var url_string = url_string[0]+"application.html?"+query;
 var url = new URL(url_string);
 
