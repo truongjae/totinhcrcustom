@@ -57,7 +57,7 @@
             var linkfb = $("linkfb");
             var namefb = $("namefb");
             if (content != "" && end!="" && date != "" && linkfb!="" && namefb !=""){
-                var link = "/application.html?linkfb="+linkfb+"&namefb="+namefb+"&date="+date+"&content="+content+"&end="+end;
+                var link = location.pathname+"application.html?linkfb="+linkfb+"&namefb="+namefb+"&date="+date+"&content="+content+"&end="+end;
                 document.body.innerHTML = 'Link của bạn đã được tạo thành công: <a href="'+link+'">Nhấn vào đây để truy cập link</a>';
             }
             else alert("Chưa nhập đủ thông tin!");
