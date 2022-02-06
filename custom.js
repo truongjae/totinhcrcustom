@@ -160,7 +160,7 @@ function createLove(){
     var day = parseInt(date[0]);
     var month = parseInt(date[1]);
     var year = parseInt(date[2]);
-    love(day,month,year);
+    love(day,month-1,year);
 }
 
 function createListItem(text, tag, clazz) {
