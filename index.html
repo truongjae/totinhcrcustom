@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup app tỏ tình</title>
+</head>
+<body>
+    <style>
+        .input{
+            width: 90%;
+            margin: auto;
+            margin-bottom: 80px;
+        }
+        textarea{
+            width: 100%;
+            outline: none;
+            font-size: 15px;
+            resize: none;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        button{
+            border: none;
+            background-color: blueviolet;
+            color: white;
+            padding: 5px 20px;
+            font-size: 25px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            border-radius: 10px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0%);
+        }
+    </style>
+    <div class="input">
+        <textarea id="content" rows="10" placeholder="Nhập nội dung tỏ tình xuống dòng bình thường"></textarea><br>
+        <textarea id="end" rows="10" placeholder="Nhập chữ ký vd: yêu em nhiều <3"></textarea><br>
+        <textarea id="date" rows="10" placeholder="Nhập ngày quen nhau vd: 15/02/2020"></textarea><br>
+        <textarea id="linkfb" rows="10" placeholder="Nhập link FB"></textarea><br>
+        <textarea id="namefb" rows="10" placeholder="Nhập tên FB"></textarea><br>
+        <button onclick="createLink()">Tạo Link</button>
+    </div>
+    
+    <script>
+        function $(id){
+            return document.getElementById(id).value;
+        }
+        function createLink(){
+            var content = $("content");
+            var content = content.split("\n");
+            var content = content.join('|');
+            var end = $("end");
+            var date = $("date");
+            var linkfb = $("linkfb");
+            var namefb = $("namefb");
+            if (content != "" && end!="" && date != "" && linkfb!="" && namefb !=""){
+                var link = "/application.html?linkfb="+linkfb+"&namefb="+namefb+"&date="+date+"&content="+content+"&end="+end;
+                document.body.innerHTML = 'Link của bạn đã được tạo thành công: <a href="'+link+'">Nhấn vào đây để truy cập link</a>';
+            }
+            else alert("Chưa nhập đủ thông tin!");
+        }
+    </script>
+</body>
+</html>
