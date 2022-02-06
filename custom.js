@@ -1,5 +1,15 @@
 var url_string = location.href;
+var url_string = url_string.split("application.html?");
+var query = b64DecodeUnicode(url_string[1]);
+var url_string = url_string[0]+"application.html?"+query;
 var url = new URL(url_string);
+const listMusic = ["I-Do-911","thuongemdengia","yeuemratnhieu","yeulacuoi"];
+function b64DecodeUnicode(str) {
+    return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+}
+
 function love(day,month,year){
     var canvas = $('#canvas');
     
@@ -178,11 +188,17 @@ function createTextContent(){
     });
     var end = url.searchParams.get("end");
     document.getElementById("textContent").innerHTML += '<span class="say"><span class="space"></span> -- '+end+' --</span>';
+    document.getElementById("textTime1").innerText = url.searchParams.get("texttime1");
+    document.getElementById("textTime2").innerText = url.searchParams.get("texttime2");
 }
 function capitalizeTxt(txt) {
     return txt.charAt(0).toUpperCase() + txt.slice(1);
   }
 function createContact(){
+    var nhacnhen = url.searchParams.get("music");
+    document.getElementById("nhacnen").src = "music/"+listMusic[parseInt(nhacnhen)]+".mp3";
+    document.getElementById("nhacnen").play();
+    document.body.onclick = function(){document.getElementById("nhacnen").play();}
     var linkFB = url.searchParams.get("linkfb");
     var nameFB = url.searchParams.get("namefb");
     var nameFBUpper = "";

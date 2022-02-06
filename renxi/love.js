@@ -1,4 +1,4 @@
-﻿(function(window){
+﻿function love(window,textLogo){
 
     function random(min, max) {
         return min + Math.floor(Math.random() * (max - min + 1));
@@ -169,7 +169,7 @@
             ctx.moveTo(0, 0);
             ctx.scale(0.75, 0.75);
             ctx.font = "12px 微软雅黑,Verdana";
-            ctx.fillText("Come Baby", 23, 10);
+            ctx.fillText(textLogo, 23, 10);
             ctx.restore();
         },
         clear: function() {
@@ -530,4 +530,17 @@
     window.Point = Point;
     window.Tree = Tree;
 
-})(window);
+}
+var url_string = location.href;
+var url_string = url_string.split("application.html?");
+var query = b64DecodeUnicode(url_string[1]);
+var url_string = url_string[0]+"application.html?"+query;
+var url = new URL(url_string);
+
+function b64DecodeUnicode(str) {
+    return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+}
+
+love(window,url.searchParams.get("textlogo"));
