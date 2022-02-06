@@ -20,6 +20,8 @@
             resize: none;
             padding: 10px;
             margin-bottom: 20px;
+            border-radius: 20px;
+            border: 1px solid rgb(204, 204, 204);
         }
         button{
             border: none;
@@ -34,6 +36,13 @@
             left: 50%;
             transform: translate(-50%,0%);
         }
+        p{
+            font-size: 18px;
+        }
+        textarea:hover{
+            transition: all 0.25s;
+            transform: scale(1.01);
+        }
     </style>
     <div class="input">
 
@@ -45,7 +54,7 @@
         <textarea id="textLogo" rows="10" placeholder="Nhập nội dung logo vd: Come Baby"></textarea><br>
         <textarea id="textTime1" rows="10" placeholder="Nhập nội dung thời gian 1 vd: Anh <3 Em"></textarea><br>
         <textarea id="textTime2" rows="10" placeholder="Nhập nội dung thời gian 2 vd: Time of love..."></textarea><br>
-        <p>Chọn nhạc:</p>
+        <p>Chọn nhạc nền:</p>
         <select id="selectMusic">
             <option value="0" selected="selected">I Do 911</option>
             <option value="1">Thương em đến già</option>
