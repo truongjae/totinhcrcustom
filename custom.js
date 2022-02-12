@@ -5,7 +5,7 @@ var url_cut = url_cut.split("&");
 var query = b64DecodeUnicode(url_cut[0]);
 var url_string = url_string[0]+"application.html?"+query;
 var url = new URL(url_string);
-const listMusic = ["I-Do-911","thuongemdengia","yeuemratnhieu","yeulacuoi"];
+const listMusic = ["I-Do-911","thuongemdengia","yeuemratnhieu","yeulacuoi","ngaydautien"];
 function b64DecodeUnicode(str) {
     return decodeURIComponent(Array.prototype.map.call(atob(str), function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
